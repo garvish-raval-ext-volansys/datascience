@@ -13,7 +13,7 @@ fars_read(filename)
 This function returns Dataframe table of imported CSV data
 }
 \description{
-This is simple function to import csv data and return dataframe 
+This is simple function to import csv data and return dataframe
 table for data operations. Function will fail if filename does't
 exist in working directory.
 }
