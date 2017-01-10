@@ -19,8 +19,10 @@ files with specific pattern. This function simplifized user input by just
 providing Year and compose filename.
 }
 \examples{
+\dontrun{
 make_filename("2015")
 make_filename(2014)
+}
 
 }
 

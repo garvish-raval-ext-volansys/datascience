@@ -23,10 +23,12 @@ Location of accident is identified by range of Longitude and latitude but NA
 values are ignored to pricise points of accidents.
 }
 \examples{
+\dontrun{
 fars_map_state(5,2015)
 fars_map_state(5,"2015")
 fars_map_state("5",2015)
 fars_map_state("5","2015")
+}
 
 }
 

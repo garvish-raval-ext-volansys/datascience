@@ -18,7 +18,9 @@ table for data operations. Function will fail if filename does't
 exist in working directory.
 }
 \examples{
+\dontrun{
 fars_read("accident_2013.csv.bz2")
+}
 
 }
 

@@ -22,10 +22,12 @@ year for which data file is available. Data table columns are
 for Month of Year and Year for individual row in data set of Year.
 }
 \examples{
+\dontrun{
 fars_read_years(2013)
 fars_read_years("2013")
 fars_read_years(c(2013,2014,2015))
 fars_read_years(c("2013","2014","2015"))
+}
 
 }
 

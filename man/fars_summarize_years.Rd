@@ -21,10 +21,12 @@ data table for each year in array and then bind them all togather and converts
 multiple data frame into single data table and provides summary for each month.
 }
 \examples{
+\dontrun{
 fars_summarize_years(2013)
 fars_summarize_years("2013")
 fars_summarize_years(c(2013,2014,2015))
 fars_summarize_years(c("2013","2014","2015"))
+}
 
 }
 

@@ -1,0 +1,75 @@
+---
+title: "Fars Crices Report Overview"
+author: "Garvish Raval"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Fars Crices Report Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r, echo = FALSE, include = FALSE}
+library(farreport)
+library(maps)
+```
+
+This vignette gives a brief overview of the FARS package functionality. The package contains a set of functions suited for analysis of data from FARS - Fatality Analysis Reporting System. FARS is a nationwide census providing NHTSA, Congress and the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. [[1](http://www.nhtsa.gov/Data/Fatality-Analysis-Reporting-System-(FARS))]
+
+## Package functions
+
+There are three exported functions available to users:
+
+- `fars_read()`
+- `make_filename()`
+- `fars_read_years()`
+- `fars_summarize_years()`
+- `fars_map_state()`
+
+Further we give a short description with examples how to use the functions. For the purposes of these examples we will use data from FARS, years 2013-2015, that can be found in the package directory under `\extdata` folder.
+
+## Read FARS data files
+
+The function `fars_read()` provides a way how to read data from a file path provided as an argument. It returns a `tibble` with loaded data:
+
+```{r fars_read_example}
+filename <- system.file("extdata/accident_2014.csv.bz2", package = "farreport")
+fars_read(filename)
+```
+
+## makes FARS data file name from Year
+
+The function `make_filename()` makes datafile name from year provided with pattern "accident_<year>.csv.bz2".
+
+```{r make_filename_example}
+make_filename(2014)
+```
+
+## Read FARS data file for provided year(s)
+
+The function `fars_read_years()` reads datafile for provided year(s) and reurn data frame in Array format.
+
+```{r fars_read_years_example}
+setwd(system.file("extdata", package = "farreport"))
+fars_read_years(2014)
+fars_read_years(c(2014,2015))
+```
+
+## Summarize number of accidents
+
+The next function `fars_summarize_years()` takes a vector or list of years (numeric/integer values) as an argument and if the corresponding files with data are available, it returns a pivot table with number of accidents per year and month. The data files need to be located in the working directory.
+
+```{r fars_summarize_years_example}
+setwd(system.file("extdata", package = "farreport"))
+fars_summarize_years(2013)
+```
+
+## Plot accident locations
+
+The last function available in the package, `fars_map_state()` takes a state index and year as arguments and returns a plot of the state with accident locations. The state indices need to correspond available indeces from the data set. Here are some examples:
+
+```{r fars_map_state_example}
+setwd(system.file("extdata", package = "farreport"))
+fars_map_state(45, 2015)
+```
+
+Note that again, the data file needs to be present in the working directory. Examples are setting working directory to package's extdata which contains sample data files.
